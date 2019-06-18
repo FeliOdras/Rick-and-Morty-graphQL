@@ -54,7 +54,7 @@ const SingleCharacter = info => {
               <button type="button" onClick={() => setPage(next)}>
                 Next
               </button>
-              <div>{paginationButtons(pages, setPage, next - 1)}</div>
+              <div>{paginationButtons(pages, setPage, page)}</div>
             </>
           );
         }}
@@ -63,10 +63,10 @@ const SingleCharacter = info => {
   );
 };
 
-const paginationButtons = (pageCount, setPage, currentPage) => {
+const paginationButtons = (pages, setPage, currentPage) => {
   const pageButtons = [];
 
-  for (let i = 1; i <= pageCount; i++) {
+  for (let i = 1; i <= pages; i++) {
     pageButtons.push(
       <button
         className={currentPage === i ? "btn active" : "btn"}
