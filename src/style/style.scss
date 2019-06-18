@@ -1,5 +1,156 @@
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import url("https://fonts.googleapis.com/css?family=Permanent+Marker|Special+Elite&display=swap");
+
 body {
-  background-color: hotpink;
+  background-color: black;
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  background-image: url(../static/images/science-fiction-bg.jpg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  font-family: "Permanent Marker", cursive;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+
+  h1 {
+    margin: 0;
+    font-weight: normal;
+  }
+
+  input {
+    font-family: "Permanent Marker", cursive;
+    padding: 0 20px;
+    font-size: 18px;
+  }
+}
+
+.count {
+  text-align: center;
+  button {
+    background-color: #232b5d;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    margin: 10px;
+    box-shadow: 0 0 6px #fff;
+  }
+}
+
+.character-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+
+  .character-details {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 15px;
+    font-family: "Special Elite", monospace;
+    max-width: 250px;
+    text-align: center;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+      .subtitle {
+        display: block;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 23px;
+        color: #666;
+      }
+    }
+
+    img {
+      width: 80%;
+    }
+
+    .detail-icons {
+      font-size: 42px;
+
+      .fa,
+      .fas,
+      .far {
+        margin: 8px;
+      }
+    }
+  }
+}
+
+.pagination {
+  .prev-next {
+    max-width: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      width: 100%;
+      background-color: darkgreen;
+      color: #fff;
+      font-size: 18px;
+      font-family: "Special Elite", monospace;
+      padding: 6px;
+      text-shadow: 0 0 6px #000;
+      border: none;
+      margin: 10px 5px;
+
+      &:hover {
+        background-color: green;
+      }
+    }
+  }
+  .pagination-pages {
+    text-align: center;
+    margin-bottom: 20px;
+    button {
+      background-color: darkorange;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      padding: 10px 15px;
+
+      &.active {
+        background-color: red;
+      }
+      &:hover {
+        background-color: orange;
+      }
+    }
+  }
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.orange {
+  color: darkorange;
+}
+
+.pink {
+  color: palevioletred;
+}
+
+.blue {
+  color: blue;
 }

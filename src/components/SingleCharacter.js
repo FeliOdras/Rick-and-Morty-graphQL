@@ -42,85 +42,105 @@ const SingleCharacter = info => {
           onChange={e => setCharacter(e.target.value)}
         />
       </header>
-      <Query variables={{ page, character }} query={SingleCharacterQuery}>
-        {({
-          loading,
-          error,
-          data: {
-            characters: { info: { next, prev, pages } = {}, results } = {}
-          } = {}
-        }) => {
-          if (loading) return <p>Loading...</p>;
-          if (error) return <p>Error :(</p>;
+      <main>
+        <Query variables={{ page, character }} query={SingleCharacterQuery}>
+          {({
+            loading,
+            error,
+            data: {
+              characters: {
+                info: { next, prev, pages, count } = {},
+                results
+              } = {}
+            } = {}
+          }) => {
+            if (loading) return <p>Loading...</p>;
+            if (error) return <p>Error :(</p>;
 
-          next = next ? next : 1;
-          prev = prev ? prev : 1;
-          return (
-            <>
-              {info.count > 0 && info.count}
-              {results
-                ? results.map(
-                    ({
-                      name,
-                      id,
-                      image,
-                      species,
-                      status,
-                      gender,
-                      type,
-                      origin
-                    }) => (
-                      <div className="character-details" key={id}>
-                        <h3>
-                          {name}
-                          <span className="subtitle">
-                            {" "}
-                            ({species}
-                            {type !== "" ? ", " : ""}
-                            {type})
-                          </span>
-                        </h3>
-                        <img
-                          src={image}
-                          alt={name}
-                          className="character-image"
-                        />
-                        <div>
-                          Status:
-                          {status === "Alive" ? (
-                            <i className="far fa-grin-beam" />
-                          ) : status === "Dead" ? (
-                            <i className="far fa-dizzy" />
-                          ) : (
-                            <i className="far fa-question-circle" />
-                          )}
-                          | Gender:
-                          {gender === "Male" ? (
-                            <i className="fas fa-mars" />
-                          ) : gender === "Female" ? (
-                            <i className="fas fa-venus" />
-                          ) : gender === "Genderless" ? (
-                            <i className="fas fa-genderless" />
-                          ) : (
-                            <i className="fas fa-question" />
-                          )}
-                          Origin {origin.name}
-                        </div>
-                      </div>
-                    )
-                  )
-                : "Nothing found"}
-              <button type="button" onClick={() => setPage(prev)}>
-                Prev
-              </button>
-              <button type="button" onClick={() => setPage(next)}>
-                Next
-              </button>
-              <div>{paginationButtons(pages, setPage, page)}</div>
-            </>
-          );
-        }}
-      </Query>
+            next = next ? next : 1;
+            prev = prev ? prev : 1;
+            return (
+              <>
+                <section className="count">
+                  <button>
+                    Total entries: {count} on {pages}{" "}
+                    {pages <= 1 ? "page" : "pages"}
+                  </button>
+                </section>
+                <section class="character-list">
+                  {info.count > 0 && info.count}
+                  {results
+                    ? results.map(
+                        ({
+                          name,
+                          id,
+                          image,
+                          species,
+                          status,
+                          gender,
+                          type,
+                          origin
+                        }) => (
+                          <article className="character-details" key={id}>
+                            <h3>
+                              {name}
+                              <span className="subtitle">
+                                {" "}
+                                {species}
+                                {type !== "" ? ", " : ""}
+                                {type} from <br />{" "}
+                                {origin.name === "unknown"
+                                  ? "unknown location"
+                                  : origin.name}
+                              </span>
+                            </h3>
+                            <img
+                              src={image}
+                              alt={name}
+                              className="character-image"
+                            />
+                            <div className="detail-icons">
+                              {status === "Alive" ? (
+                                <i className="far fa-grin-beam green" />
+                              ) : status === "Dead" ? (
+                                <i className="far fa-dizzy red" />
+                              ) : (
+                                <i className="far fa-question-circle orange" />
+                              )}
+
+                              {gender === "Male" ? (
+                                <i className="fas fa-mars blue" />
+                              ) : gender === "Female" ? (
+                                <i className="fas fa-venus pink" />
+                              ) : gender === "Genderless" ? (
+                                <i className="fas fa-genderless green" />
+                              ) : (
+                                <i className="fas fa-question orange" />
+                              )}
+                            </div>
+                          </article>
+                        )
+                      )
+                    : "Nothing found"}
+                </section>
+                <section className="pagination">
+                  <div className="prev-next">
+                    <button type="button" onClick={() => setPage(prev)}>
+                      Prev
+                    </button>
+                    <button type="button" onClick={() => setPage(next)}>
+                      Next
+                    </button>
+                  </div>
+                  <div className="pagination-pages">
+                    {paginationButtons(pages, setPage, page)}
+                  </div>
+                </section>
+              </>
+            );
+          }}
+        </Query>
+      </main>
     </>
   );
 };
