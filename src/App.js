@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ApolloClient, { gql } from "apollo-boost";
 import { ApolloProvider, Query } from "react-apollo";
 
-import { Characters } from "./components/Characters";
+import Characters from "./components/Characters";
 
 const client = new ApolloClient({
   uri: "https://rickandmortyapi.com/graphql/"

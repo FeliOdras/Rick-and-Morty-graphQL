@@ -18,20 +18,18 @@ const GET_RM_CHARACTERS = gql`
     }
   }
 `;
-export class Characters extends Component {
-  render() {
-    return (
-      <Query query={GET_RM_CHARACTERS}>
-        {({ loading, error, data: { characters: { info, results } = {} } }) => {
-          console.log(loading, error, info, results);
-          if (loading) return <p>Loading...</p>;
-          if (error) return <p>Error :(</p>;
+const Characters = ({ page, setPage }) => {
+  return (
+    <Query query={GET_RM_CHARACTERS} variables={{ page }}>
+      {({ loading, error, data: { characters: { info, results } = {} } }) => {
+        console.log(loading, error, info, results);
+        if (loading) return <p>Loading...</p>;
+        if (error) return <p>Error :(</p>;
 
-          return results.map(({ name, id }) => <p key={id}>{name}</p>);
-        }}
-      </Query>
-    );
-  }
-}
+        return results.map(({ name, id }) => <p key={id}>{name}</p>);
+      }}
+    </Query>
+  );
+};
 
 export default Characters;
