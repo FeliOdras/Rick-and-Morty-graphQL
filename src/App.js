@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ApolloClient, { gql } from "apollo-boost";
+import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
 import AllCharacters from "./components/Characters";

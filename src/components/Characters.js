@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import { number } from "prop-types";
@@ -18,6 +18,7 @@ const allCharactersQuery = gql`
         image
         gender
         species
+        status
         origin {
           name
         }
@@ -37,7 +38,6 @@ const allCharacters = ({ page, setPage }) => {
             characters: { info: { next, prev, pages } = {}, results } = {}
           } = {}
         }) => {
-          console.log(loading, error, next, prev, results);
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error :(</p>;
 
@@ -55,31 +55,43 @@ const allCharacters = ({ page, setPage }) => {
               <button type="button" onClick={() => setPage(next)}>
                 Next
               </button>
-              {results.map(({ name, id, image, species, gender, origin }) => (
-                <div className="character-details">
-                  <h3 key={id}>{name}</h3>
-                  <p>
-                    <img
-                      src={image}
-                      alt={name}
-                      className="character-image"
-                      width="150"
-                    />
-                  </p>
-                  <div className="character-detail">
-                    <div className="detail-title">Species</div>
-                    <div className="detail-description">{species}</div>
+              {results.map(
+                ({ name, id, image, species, gender, origin, status }) => (
+                  <div className="character-details" key={id}>
+                    <h3>{name}</h3>
+                    <p>
+                      <img
+                        src={image}
+                        alt={name}
+                        className="character-image"
+                        width="150"
+                      />
+                    </p>
+                    <div className="character-detail">
+                      <div className="detail-title">Species</div>
+                      <div className="detail-description">{species}</div>
+                    </div>
+                    <div className="character-detail">
+                      <div className="detail-title">Gender</div>
+                      <div className="detail-description">{gender}</div>
+                    </div>
+                    <div className="character-detail">
+                      <div className="detail-title">Status</div>
+                      <div className="detail-description">
+                        {status === "Alive"
+                          ? "💓"
+                          : status === "Dead"
+                          ? "✝"
+                          : "❓"}
+                      </div>
+                    </div>
+                    <div className="character-detail">
+                      <div className="detail-title">Origin</div>
+                      <div className="detail-description">{origin.name}</div>
+                    </div>
                   </div>
-                  <div className="character-detail">
-                    <div className="detail-title">Gender</div>
-                    <div className="detail-description">{gender}</div>
-                  </div>
-                  <div className="character-detail">
-                    <div className="detail-title">Origin</div>
-                    <div className="detail-description">{origin.name}</div>
-                  </div>
-                </div>
-              ))}
+                )
+              )}
               <button type="button" onClick={() => setPage(prev)}>
                 Prev
               </button>
