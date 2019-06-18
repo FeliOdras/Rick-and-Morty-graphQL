@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
-import { number } from "prop-types";
 
-const allCharactersQuery = gql`
-  query($page: Int!) {
-    characters(page: $page) {
+const SingleCharacterQuery = gql`
+  query($character: String!, $page: Int!) {
+    characters(page: $page, filter: { name: $character }) {
       info {
         count
         next
@@ -20,11 +19,17 @@ const allCharactersQuery = gql`
   }
 `;
 
-const AllCharacters = () => {
+const SingleCharacter = info => {
+  const [character, setCharacter] = useState("");
   const [page, setPage] = useState(1);
   return (
     <>
-      <Query variables={{ page }} query={allCharactersQuery}>
+      <input
+        type="text"
+        value={character}
+        onChange={e => setCharacter(e.target.value)}
+      />
+      <Query variables={{ page, character }} query={SingleCharacterQuery}>
         {({
           loading,
           error,
@@ -32,18 +37,17 @@ const AllCharacters = () => {
             characters: { info: { next, prev, pages } = {}, results } = {}
           } = {}
         }) => {
-          console.log(loading, error, next, prev, results);
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error :(</p>;
 
           next = next ? next : 1;
           prev = prev ? prev : 1;
-
           return (
             <>
-              {results.map(({ name, id }) => (
-                <p key={id}>{name}</p>
-              ))}
+              {info.count > 0 && info.count}
+              {results
+                ? results.map(({ name, id }) => <p key={id}>{name}</p>)
+                : "Nothing found"}
               <button type="button" onClick={() => setPage(prev)}>
                 Prev
               </button>
@@ -61,11 +65,11 @@ const AllCharacters = () => {
 
 const paginationButtons = (pageCount, setPage, currentPage) => {
   const pageButtons = [];
-  console.log(currentPage);
+
   for (let i = 1; i <= pageCount; i++) {
     pageButtons.push(
       <button
-        className={currentPage === i ? "active" : ""}
+        className={currentPage === i ? "btn active" : "btn"}
         key={i}
         onClick={() => setPage(i)}
       >
@@ -73,12 +77,7 @@ const paginationButtons = (pageCount, setPage, currentPage) => {
       </button>
     );
   }
-
   return pageButtons;
 };
 
-AllCharacters.propTypes = {
-  page: number.isRequired
-};
-
-export default AllCharacters;
+export default SingleCharacter;
