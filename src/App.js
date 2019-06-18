@@ -8,23 +8,6 @@ const client = new ApolloClient({
   uri: "https://rickandmortyapi.com/graphql/"
 });
 
-const GET_RM_CHARACTERS = gql`
-  query data($page: Int) {
-    characters(page: $page) {
-      info {
-        count
-        next
-        prev
-        pages
-      }
-      results {
-        name
-        id
-      }
-    }
-  }
-`;
-
 function App() {
   const [page, setPage] = useState(1);
 
