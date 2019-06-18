@@ -24,10 +24,12 @@ const GET_RM_CHARACTERS = gql`
 `;
 
 function App({ page }) {
+  const [page, setPage] = useState(1);
+
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <Query query={GET_RM_CHARACTERS} variables={{ page }}>
+        {/* <Query query={GET_RM_CHARACTERS} variables={{ page }}>
           {({
             loading,
             error,
@@ -39,7 +41,7 @@ function App({ page }) {
 
             return results.map(({ name, id }) => <p key={id}>{name}</p>);
           }}
-        </Query>
+        </Query> */}
       </div>
     </ApolloProvider>
   );
