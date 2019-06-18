@@ -43,7 +43,7 @@ const allCharacters = ({ page, setPage }) => {
             <>
               {results.map(({ name, id, image }) => (
                 <div className="character-details">
-                  <p key={id}>{name}</p>
+                  <h3 key={id}>{name}</h3>
                   <p>
                     <img
                       src={image}
