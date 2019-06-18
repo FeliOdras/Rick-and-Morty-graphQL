@@ -16,6 +16,11 @@ const allCharactersQuery = gql`
         name
         id
         image
+        gender
+        species
+        origin {
+          name
+        }
       }
     }
   }
@@ -41,7 +46,16 @@ const allCharacters = ({ page, setPage }) => {
 
           return (
             <>
-              {results.map(({ name, id, image }) => (
+              <h2>
+                Page {next - 1} of {pages}
+              </h2>
+              <button type="button" onClick={() => setPage(prev)}>
+                Prev
+              </button>
+              <button type="button" onClick={() => setPage(next)}>
+                Next
+              </button>
+              {results.map(({ name, id, image, species, gender, origin }) => (
                 <div className="character-details">
                   <h3 key={id}>{name}</h3>
                   <p>
@@ -52,6 +66,18 @@ const allCharacters = ({ page, setPage }) => {
                       width="150"
                     />
                   </p>
+                  <div className="character-detail">
+                    <div className="detail-title">Species</div>
+                    <div className="detail-description">{species}</div>
+                  </div>
+                  <div className="character-detail">
+                    <div className="detail-title">Gender</div>
+                    <div className="detail-description">{gender}</div>
+                  </div>
+                  <div className="character-detail">
+                    <div className="detail-title">Origin</div>
+                    <div className="detail-description">{origin.name}</div>
+                  </div>
                 </div>
               ))}
               <button type="button" onClick={() => setPage(prev)}>
