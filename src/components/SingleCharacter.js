@@ -32,7 +32,13 @@ const SingleCharacter = () => {
   return (
     <div>
       <input type="text" />
-      <Query variables={{ character }} query={SingleCharacterQuery} />
+      <Query variables={{ character }} query={SingleCharacterQuery}>
+        {({
+          loading,
+          error,
+          data: { characters: { info, results = {} } } = {}
+        }) => {}}
+      </Query>
     </div>
   );
 };
