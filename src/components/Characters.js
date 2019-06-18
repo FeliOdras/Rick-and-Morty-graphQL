@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import { number } from "prop-types";
@@ -15,19 +15,13 @@ const allCharactersQuery = gql`
       results {
         name
         id
-        image
-        gender
-        species
-        status
-        origin {
-          name
-        }
       }
     }
   }
 `;
 
-const allCharacters = ({ page, setPage }) => {
+const AllCharacters = () => {
+  const [page, setPage] = useState(1);
   return (
     <>
       <Query variables={{ page }} query={allCharactersQuery}>
@@ -38,6 +32,7 @@ const allCharacters = ({ page, setPage }) => {
             characters: { info: { next, prev, pages } = {}, results } = {}
           } = {}
         }) => {
+          console.log(loading, error, next, prev, results);
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error :(</p>;
 
@@ -46,52 +41,9 @@ const allCharacters = ({ page, setPage }) => {
 
           return (
             <>
-              <h2>
-                Page {next - 1} of {pages}
-              </h2>
-              <button type="button" onClick={() => setPage(prev)}>
-                Prev
-              </button>
-              <button type="button" onClick={() => setPage(next)}>
-                Next
-              </button>
-              {results.map(
-                ({ name, id, image, species, gender, origin, status }) => (
-                  <div className="character-details" key={id}>
-                    <h3>{name}</h3>
-                    <p>
-                      <img
-                        src={image}
-                        alt={name}
-                        className="character-image"
-                        width="150"
-                      />
-                    </p>
-                    <div className="character-detail">
-                      <div className="detail-title">Species</div>
-                      <div className="detail-description">{species}</div>
-                    </div>
-                    <div className="character-detail">
-                      <div className="detail-title">Gender</div>
-                      <div className="detail-description">{gender}</div>
-                    </div>
-                    <div className="character-detail">
-                      <div className="detail-title">Status</div>
-                      <div className="detail-description">
-                        {status === "Alive"
-                          ? "💓"
-                          : status === "Dead"
-                          ? "✝"
-                          : "❓"}
-                      </div>
-                    </div>
-                    <div className="character-detail">
-                      <div className="detail-title">Origin</div>
-                      <div className="detail-description">{origin.name}</div>
-                    </div>
-                  </div>
-                )
-              )}
+              {results.map(({ name, id }) => (
+                <p key={id}>{name}</p>
+              ))}
               <button type="button" onClick={() => setPage(prev)}>
                 Prev
               </button>
@@ -110,7 +62,7 @@ const allCharacters = ({ page, setPage }) => {
 const paginationButtons = (pageCount, setPage, currentPage) => {
   const pageButtons = [];
   console.log(currentPage);
-  for (let i = 1; i < pageCount; i++) {
+  for (let i = 1; i <= pageCount; i++) {
     pageButtons.push(
       <button
         className={currentPage === i ? "active" : ""}
@@ -125,8 +77,8 @@ const paginationButtons = (pageCount, setPage, currentPage) => {
   return pageButtons;
 };
 
-allCharacters.propTypes = {
+AllCharacters.propTypes = {
   page: number.isRequired
 };
 
-export default allCharacters;
+export default AllCharacters;
