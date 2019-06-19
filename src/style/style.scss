@@ -111,9 +111,10 @@ header {
 
     .detail-icons {
       position: absolute;
-      z-index: 10;
+      z-index: 12;
       right: 15px;
-      color: #232b5d;
+      bottom: 10px;
+      color: #b3c7cc;
       font-size: 10px;
       text-align: center;
       display: flex;
@@ -125,7 +126,6 @@ header {
       .fas,
       .far {
         margin: 0 2px;
-        text-shadow: 0 0 6px #fff;
         font-size: 23px;
       }
     }
@@ -141,7 +141,7 @@ header {
 
     button {
       width: 100%;
-      background-color: darkgreen;
+      background-color: #232b5d;
       color: #fff;
       font-size: 18px;
       font-family: "Special Elite", monospace;
@@ -151,25 +151,25 @@ header {
       margin: 10px 5px;
 
       &:hover {
-        background-color: green;
+        background-color: #3c4688;
       }
     }
   }
   .pagination-pages {
     text-align: center;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
     button {
-      background-color: darkorange;
+      background-color: #232b5d;
       color: #fff;
       font-size: 18px;
       border: none;
       padding: 10px 15px;
 
       &.active {
-        background-color: red;
+        background-color: #0d1442;
       }
       &:hover {
-        background-color: orange;
+        background-color: #3c4688;
       }
     }
   }

@@ -101,8 +101,6 @@ const SingleCharacter = info => {
                             />
                             <div className="detail-icons">
                               <div className="detail-icon-box">
-                                <span>S:</span>
-                                <br />
                                 {status === "Alive" ? (
                                   <i className="far fa-grin-beam" />
                                 ) : status === "Dead" ? (
@@ -112,8 +110,6 @@ const SingleCharacter = info => {
                                 )}
                               </div>
                               <div className="detail-icon-box">
-                                <span>G:</span>
-                                <br />
                                 {gender === "Male" ? (
                                   <i className="fas fa-mars" />
                                 ) : gender === "Female" ? (
