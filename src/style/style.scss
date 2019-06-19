@@ -131,66 +131,37 @@ header {
     }
   }
 }
+.count {
+  display: flex;
+  justify-content: space-between;
 
-.pagination {
-  .prev-next {
-    max-width: 300px;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-
-    button {
-      width: 100%;
-      background-color: #232b5d;
-      color: #fff;
-      font-size: 18px;
-      font-family: "Special Elite", monospace;
-      padding: 6px;
-      text-shadow: 0 0 6px #000;
-      border: none;
-      margin: 10px 5px;
-
-      &:hover {
-        background-color: #3c4688;
-      }
-    }
-  }
-  .pagination-pages {
-    text-align: center;
-    padding-bottom: 20px;
-    button {
-      background-color: #232b5d;
-      color: #fff;
-      font-size: 18px;
-      border: none;
-      padding: 10px 15px;
-
-      &.active {
-        background-color: #0d1442;
-      }
-      &:hover {
-        background-color: #3c4688;
-      }
-    }
+  button {
+    background-color: #232b5d;
+    color: #fff;
+    font-size: 18px;
+    font-family: "Special Elite", monospace;
+    padding: 6px;
+    box-shadow: 0 0 6px #000;
+    border: none;
+    margin: 10px 5px;
   }
 }
 
-.red {
-  color: red;
-}
+.pagination-pages {
+  text-align: center;
+  padding-bottom: 20px;
+  button {
+    background-color: #232b5d;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    padding: 10px 15px;
 
-.green {
-  color: green;
-}
-
-.orange {
-  color: darkorange;
-}
-
-.pink {
-  color: palevioletred;
-}
-
-.blue {
-  color: blue;
+    &.active {
+      background-color: #0d1442;
+    }
+    &:hover {
+      background-color: #3c4688;
+    }
+  }
 }

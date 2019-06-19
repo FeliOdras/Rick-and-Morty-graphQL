@@ -62,11 +62,22 @@ const SingleCharacter = info => {
             return (
               <>
                 <section className="count">
+                  <div className="prev-next">
+                    <button type="button" onClick={() => setPage(prev)}>
+                      <i class="fas fa-chevron-left" />
+                    </button>
+                  </div>
                   <button>
                     Total entries: {count} on {pages}{" "}
                     {pages <= 1 ? "page" : "pages"}
                   </button>
+                  <div className="prev-next">
+                    <button type="button" onClick={() => setPage(next)}>
+                      <i class="fas fa-chevron-right" />
+                    </button>
+                  </div>
                 </section>
+
                 <section class="character-list">
                   {info.count > 0 && info.count}
                   {results
@@ -127,14 +138,6 @@ const SingleCharacter = info => {
                     : "Nothing found"}
                 </section>
                 <section className="pagination">
-                  <div className="prev-next">
-                    <button type="button" onClick={() => setPage(prev)}>
-                      Prev
-                    </button>
-                    <button type="button" onClick={() => setPage(next)}>
-                      Next
-                    </button>
-                  </div>
                   <div className="pagination-pages">
                     {paginationButtons(pages, setPage, page)}
                   </div>
