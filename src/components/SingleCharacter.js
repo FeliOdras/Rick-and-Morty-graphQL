@@ -100,23 +100,30 @@ const SingleCharacter = info => {
                               className="character-image"
                             />
                             <div className="detail-icons">
-                              {status === "Alive" ? (
-                                <i className="far fa-grin-beam green" />
-                              ) : status === "Dead" ? (
-                                <i className="far fa-dizzy red" />
-                              ) : (
-                                <i className="far fa-question-circle orange" />
-                              )}
-
-                              {gender === "Male" ? (
-                                <i className="fas fa-mars blue" />
-                              ) : gender === "Female" ? (
-                                <i className="fas fa-venus pink" />
-                              ) : gender === "Genderless" ? (
-                                <i className="fas fa-genderless green" />
-                              ) : (
-                                <i className="fas fa-question orange" />
-                              )}
+                              <div className="detail-icon-box">
+                                <span>S:</span>
+                                <br />
+                                {status === "Alive" ? (
+                                  <i className="far fa-grin-beam" />
+                                ) : status === "Dead" ? (
+                                  <i className="far fa-dizzy" />
+                                ) : (
+                                  <i className="far fa-question-circle" />
+                                )}
+                              </div>
+                              <div className="detail-icon-box">
+                                <span>G:</span>
+                                <br />
+                                {gender === "Male" ? (
+                                  <i className="fas fa-mars" />
+                                ) : gender === "Female" ? (
+                                  <i className="fas fa-venus" />
+                                ) : gender === "Genderless" ? (
+                                  <i className="fas fa-genderless" />
+                                ) : (
+                                  <i className="fas fa-question" />
+                                )}
+                              </div>
                             </div>
                           </article>
                         )

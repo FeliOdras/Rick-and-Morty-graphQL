@@ -79,7 +79,7 @@ header {
     h3 {
       margin: 0;
       color: #fff;
-      background-color: rgba(35, 43, 93, 0.7);
+      background-color: rgba(35, 43, 93, 0.75);
       padding: 15px;
       position: absolute;
       bottom: -100%;
@@ -95,6 +95,9 @@ header {
         font-size: 16px;
         line-height: 23px;
         color: #b3c7cc;
+        margin-top: 8px;
+        border-top: 1px solid #b3c7cc;
+        padding-top: 8px;
       }
     }
 
@@ -106,12 +109,23 @@ header {
     }
 
     .detail-icons {
-      font-size: 42px;
-
+      position: absolute;
+      z-index: 10;
+      right: 15px;
+      color: #232b5d;
+      font-size: 10px;
+      text-align: center;
+      display: flex;
+      margin: -5px;
+      .detail-icon-box {
+        padding-left: 3px;
+      }
       .fa,
       .fas,
       .far {
-        margin: 8px;
+        margin: 0 2px;
+        text-shadow: 0 0 6px #fff;
+        font-size: 23px;
       }
     }
   }
