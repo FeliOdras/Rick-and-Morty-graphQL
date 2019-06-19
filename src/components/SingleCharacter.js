@@ -62,11 +62,22 @@ const SingleCharacter = info => {
             return (
               <>
                 <section className="count">
+                  <div className="prev-next">
+                    <button type="button" onClick={() => setPage(prev)}>
+                      <i class="fas fa-chevron-left" />
+                    </button>
+                  </div>
                   <button>
                     Total entries: {count} on {pages}{" "}
                     {pages <= 1 ? "page" : "pages"}
                   </button>
+                  <div className="prev-next">
+                    <button type="button" onClick={() => setPage(next)}>
+                      <i class="fas fa-chevron-right" />
+                    </button>
+                  </div>
                 </section>
+
                 <section class="character-list">
                   {info.count > 0 && info.count}
                   {results
@@ -100,23 +111,26 @@ const SingleCharacter = info => {
                               className="character-image"
                             />
                             <div className="detail-icons">
-                              {status === "Alive" ? (
-                                <i className="far fa-grin-beam green" />
-                              ) : status === "Dead" ? (
-                                <i className="far fa-dizzy red" />
-                              ) : (
-                                <i className="far fa-question-circle orange" />
-                              )}
-
-                              {gender === "Male" ? (
-                                <i className="fas fa-mars blue" />
-                              ) : gender === "Female" ? (
-                                <i className="fas fa-venus pink" />
-                              ) : gender === "Genderless" ? (
-                                <i className="fas fa-genderless green" />
-                              ) : (
-                                <i className="fas fa-question orange" />
-                              )}
+                              <div className="detail-icon-box">
+                                {status === "Alive" ? (
+                                  <i className="far fa-grin-beam" />
+                                ) : status === "Dead" ? (
+                                  <i className="far fa-dizzy" />
+                                ) : (
+                                  <i className="far fa-question-circle" />
+                                )}
+                              </div>
+                              <div className="detail-icon-box">
+                                {gender === "Male" ? (
+                                  <i className="fas fa-mars" />
+                                ) : gender === "Female" ? (
+                                  <i className="fas fa-venus" />
+                                ) : gender === "Genderless" ? (
+                                  <i className="fas fa-genderless" />
+                                ) : (
+                                  <i className="fas fa-question" />
+                                )}
+                              </div>
                             </div>
                           </article>
                         )
@@ -124,14 +138,6 @@ const SingleCharacter = info => {
                     : "Nothing found"}
                 </section>
                 <section className="pagination">
-                  <div className="prev-next">
-                    <button type="button" onClick={() => setPage(prev)}>
-                      Prev
-                    </button>
-                    <button type="button" onClick={() => setPage(next)}>
-                      Next
-                    </button>
-                  </div>
                   <div className="pagination-pages">
                     {paginationButtons(pages, setPage, page)}
                   </div>
