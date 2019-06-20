@@ -1,6 +1,4 @@
 # Rick and Morty GraphQL
-https://rickandmortyapi.com/
-
 
 ## Preview
 ![Rick and Morty API](https://raw.githubusercontent.com/FeliOdras/Rick-and-Morty-graphQL/master/RickAndMortyGraphQL.png)
@@ -19,7 +17,8 @@ https://rickandmortyapi.com/
 - HTML/CSS/SCSS
 - JavaScript
 - React.js
-- GraphQL
+- GraphQL 
+- [Rick and Morty API/GrapgQL](https://rickandmortyapi.com/)
 
 ---
 
