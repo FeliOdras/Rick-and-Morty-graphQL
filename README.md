@@ -7,12 +7,16 @@ Web Application to display Information about the show "Rick & Morty" using [Rick
 ![Rick and Morty API](https://raw.githubusercontent.com/FeliOdras/Rick-and-Morty-graphQL/master/RickAndMortyGraphQL.png)
 
 ---
+
 #### **[Visit Poject Site &raquo;](https://playground.odras.de/rick-and-morty/)**
+
 ---
 
 ## Features
+
 - Search Rick and Morty GraphQL for Character-Information
 - Filter characters by name
+- List episodes
 - Pagination
 
 ## Technologies
@@ -20,7 +24,8 @@ Web Application to display Information about the show "Rick & Morty" using [Rick
 - HTML/CSS/SCSS
 - JavaScript
 - React.js
-- GraphQL 
+- React Router
+- GraphQL
 - [Rick and Morty API/GraphQL](https://rickandmortyapi.com/)
 
 ---
