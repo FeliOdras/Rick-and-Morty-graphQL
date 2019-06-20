@@ -37,13 +37,13 @@ const SingleCharacter = info => {
     <>
       <header className="header">
         <h1>Rick & Morty Character Base</h1>
+        <NavigationBar />
         <input
           type="text"
           value={character}
           placeholder="Type character name"
           onChange={e => setCharacter(e.target.value)}
         />
-        <NavigationBar />
       </header>
       <main>
         <Query variables={{ page, character }} query={SingleCharacterQuery}>
@@ -60,13 +60,13 @@ const SingleCharacter = info => {
             if (loading)
               return (
                 <p className="button">
-                  Loading <i class="fas fa-spinner fa-spin" />{" "}
+                  Loading <i className="fas fa-spinner fa-spin" />{" "}
                 </p>
               );
             if (error)
               return (
                 <p className="button">
-                  Error <i class="fas fa-exclamation-triangle" />
+                  Error <i className="fas fa-exclamation-triangle" />
                 </p>
               );
 
@@ -77,7 +77,7 @@ const SingleCharacter = info => {
                 <section className="count">
                   <div className="prev-next">
                     <button type="button" onClick={() => setPage(prev)}>
-                      <i class="fas fa-chevron-left" />
+                      <i className="fas fa-chevron-left" />
                     </button>
                   </div>
                   <button>
@@ -86,12 +86,12 @@ const SingleCharacter = info => {
                   </button>
                   <div className="prev-next">
                     <button type="button" onClick={() => setPage(next)}>
-                      <i class="fas fa-chevron-right" />
+                      <i className="fas fa-chevron-right" />
                     </button>
                   </div>
                 </section>
 
-                <section class="character-list">
+                <section className="character-list">
                   {info.count > 0 && info.count}
                   {results
                     ? results.map(

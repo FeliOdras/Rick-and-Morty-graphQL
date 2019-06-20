@@ -18,16 +18,14 @@ class App extends React.Component {
   }
   render() {
     return (
-      <>
+      <div className="App">
         <ApolloProvider client={client}>
           <Switch>
-            <div className="App">
-              <Route exact path="/" component={SingleCharacter} />
-              <Route exact path="/episodes" component={Episodes} />
-            </div>
+            <Route exact path="/" component={SingleCharacter} />
+            <Route exact path="/episodes" component={Episodes} />
           </Switch>
         </ApolloProvider>
-      </>
+      </div>
     );
   }
 }
