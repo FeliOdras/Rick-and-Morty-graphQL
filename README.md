@@ -1,3 +1,28 @@
+# Rick and Morty GraphQL
+https://rickandmortyapi.com/
+
+
+## Preview
+![Rick and Morty API](https://raw.githubusercontent.com/FeliOdras/Rick-and-Morty-graphQL/master/RickAndMortyGraphQL.png)
+
+---
+#### **[Visit Poject Site &raquo;](https://playground.odras.de/rick-and-morty/)**
+---
+
+## Features
+- Search Rick and Morty GraphQL for Character-Information
+- Filter characters by name
+- Pagination
+
+## Technologies
+
+- HTML/CSS/SCSS
+- JavaScript
+- React.js
+- GraphQL
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
