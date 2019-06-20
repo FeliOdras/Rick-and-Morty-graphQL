@@ -63,6 +63,22 @@ function Episodes() {
             return (
               <>
                 <main>
+                  <section className="count">
+                    <div className="prev-next">
+                      <button type="button" onClick={() => setPage(prev)}>
+                        <i className="fas fa-chevron-left" />
+                      </button>
+                    </div>
+                    <button>
+                      Total entries: {count} on {pages}{" "}
+                      {pages <= 1 ? "page" : "pages"}
+                    </button>
+                    <div className="prev-next">
+                      <button type="button" onClick={() => setPage(next)}>
+                        <i className="fas fa-chevron-right" />
+                      </button>
+                    </div>
+                  </section>
                   <table>
                     <thead>
                       <tr>
