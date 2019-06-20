@@ -1,11 +1,21 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
+import NavigationBar from "./NavigationBar";
 
-export default class Episodes extends Component {
-  render() {
-    return (
-      <div>
-        <h2>Episodes</h2>
-      </div>
-    );
-  }
-}
+const Episodes = () => {
+  const [character, setEpisode] = useState("");
+  const [page, setPage] = useState(1);
+  return (
+    <header className="header">
+      <h1>Rick & Morty Episodes Base</h1>
+      <input
+        type="text"
+        value={character}
+        placeholder="Type episode title"
+        onChange={e => setEpisode(e.target.value)}
+      />
+      <NavigationBar />
+    </header>
+  );
+};
+
+export default Episodes;
