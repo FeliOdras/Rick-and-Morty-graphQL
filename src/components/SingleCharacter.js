@@ -3,6 +3,8 @@ import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import "../style/style.scss";
 
+import NavigationBar from "./NavigationBar";
+
 const SingleCharacterQuery = gql`
   query($character: String!, $page: Int!) {
     characters(page: $page, filter: { name: $character }) {
@@ -41,6 +43,7 @@ const SingleCharacter = info => {
           placeholder="Type character name"
           onChange={e => setCharacter(e.target.value)}
         />
+        <NavigationBar />
       </header>
       <main>
         <Query variables={{ page, character }} query={SingleCharacterQuery}>

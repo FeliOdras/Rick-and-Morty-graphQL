@@ -21,12 +21,11 @@ class App extends React.Component {
       <>
         <ApolloProvider client={client}>
           <Switch>
-            <Route exact path="/" component={SingleCharacter} />
-            <Route exact path="/episodes" component={Episodes} />
+            <div className="App">
+              <Route exact path="/" component={SingleCharacter} />
+              <Route exact path="/episodes" component={Episodes} />
+            </div>
           </Switch>
-          <div className="App">
-            <SingleCharacter />
-          </div>
         </ApolloProvider>
       </>
     );
