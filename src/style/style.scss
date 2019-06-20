@@ -24,6 +24,10 @@ header {
   display: flex;
   justify-content: space-between;
 
+  @media screen and (max-width: 440px) {
+    flex-direction: column;
+  }
+
   h1 {
     margin: 0;
     font-weight: normal;
@@ -70,6 +74,11 @@ header {
     box-shadow: 2px 2px 6px #000;
     position: relative;
     overflow: hidden;
+
+    @media screen and (max-width: 360px) {
+      width: 85%;
+      height: 90vw;
+    }
 
     &:hover {
       h3 {
