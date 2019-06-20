@@ -54,8 +54,18 @@ const SingleCharacter = info => {
               } = {}
             } = {}
           }) => {
-            if (loading) return <p className="button">Loading... </p>;
-            if (error) return <p className="button">Error :(</p>;
+            if (loading)
+              return (
+                <p className="button">
+                  Loading <i class="fas fa-spinner fa-spin" />{" "}
+                </p>
+              );
+            if (error)
+              return (
+                <p className="button">
+                  Error <i class="fas fa-exclamation-triangle" />
+                </p>
+              );
 
             next = next ? next : 1;
             prev = prev ? prev : 1;

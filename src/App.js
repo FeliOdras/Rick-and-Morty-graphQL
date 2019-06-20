@@ -8,15 +8,21 @@ import SingleCharacter from "./components/SingleCharacter";
 const client = new ApolloClient({
   uri: "https://rickandmortyapi.com/graphql/"
 });
+
 // functional component
-function App() {
-  return (
-    <ApolloProvider client={client}>
-      <div className="App">
-        <SingleCharacter />
-      </div>
-    </ApolloProvider>
-  );
+class App extends React.Component {
+  componentDidMount() {
+    document.title = "Rick and Morty Characterbase";
+  }
+  render() {
+    return (
+      <ApolloProvider client={client}>
+        <div className="App">
+          <SingleCharacter />
+        </div>
+      </ApolloProvider>
+    );
+  }
 }
 
 export default App;
