@@ -38,7 +38,6 @@ const SingleCharacter = info => {
     <>
       <header className="header">
         <h1>Rick & Morty Character Base</h1>
-        <NavigationBar />
         <input
           type="text"
           value={character}
@@ -46,6 +45,7 @@ const SingleCharacter = info => {
           onChange={e => setCharacter(e.target.value)}
         />
       </header>
+      <NavigationBar />
       <main>
         <Query variables={{ page, character }} query={SingleCharacterQuery}>
           {({

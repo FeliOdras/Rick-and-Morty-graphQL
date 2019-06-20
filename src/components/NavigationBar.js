@@ -5,10 +5,10 @@ const NavigationBar = () => {
   return (
     <nav className="navigation-bar">
       <ul>
-        <li>
+        <li className="button">
           <Link to="/">Characters</Link>
         </li>
-        <li>
+        <li className="button">
           <Link to="/episodes">Episodes</Link>
         </li>
       </ul>

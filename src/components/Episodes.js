@@ -30,8 +30,8 @@ function Episodes() {
     <>
       <header className="header">
         <h1>Rick & Morty Episodes Base</h1>
-        <NavigationBar />
       </header>
+      <NavigationBar />
       <main>
         <Query variables={{ page }} query={EpisodesQuery}>
           {({

@@ -12,6 +12,23 @@ table {
   background-color: rgba(35, 43, 93, 0.7);
   color: #fff;
   font-family: "Special Elite", monospace;
+
+  th {
+    text-align: left;
+    font-size: 20px;
+    padding: 6px;
+    background-color: rgba(35, 43, 93, 0.7);
+  }
+
+  tr {
+    &:nth-child(even) {
+      background-color: rgba(35, 43, 93, 0.7);
+    }
+
+    td {
+      padding: 8px 6px;
+    }
+  }
 }
 
 .App {
@@ -25,7 +42,7 @@ table {
 
 header {
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 15px;
+  padding: 15px 15px 5px 15px;
   font-family: "Permanent Marker", cursive;
   color: #fff;
   display: flex;
@@ -47,11 +64,31 @@ header {
   }
 }
 
+.navigation-bar {
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  font-family: "Permanent Marker", cursive;
+  padding-bottom: 15px;
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      list-style-type: none;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 button,
 .button {
   background-color: #232b5d;
   color: #fff;
-  padding: 10px;
+  padding: 5px 10px;
   font-size: 16px;
   border: none;
   margin: 10px;
