@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import "../style/style.scss";
+import { paginationButton } from "../helpers";
+
+import NavigationBar from "./NavigationBar";
 
 const SingleCharacterQuery = gql`
   query($character: String!, $page: Int!) {
@@ -42,6 +45,7 @@ const SingleCharacter = info => {
           onChange={e => setCharacter(e.target.value)}
         />
       </header>
+      <NavigationBar />
       <main>
         <Query variables={{ page, character }} query={SingleCharacterQuery}>
           {({
@@ -57,24 +61,24 @@ const SingleCharacter = info => {
             if (loading)
               return (
                 <p className="button">
-                  Loading <i class="fas fa-spinner fa-spin" />{" "}
+                  Loading <i className="fas fa-spinner fa-spin" />{" "}
                 </p>
               );
             if (error)
               return (
                 <p className="button">
-                  Error <i class="fas fa-exclamation-triangle" />
+                  Error <i className="fas fa-exclamation-triangle" />
                 </p>
               );
 
-            next = next ? next : 1;
+            next = next ? next : pages;
             prev = prev ? prev : 1;
             return (
               <>
                 <section className="count">
                   <div className="prev-next">
                     <button type="button" onClick={() => setPage(prev)}>
-                      <i class="fas fa-chevron-left" />
+                      <i className="fas fa-chevron-left" />
                     </button>
                   </div>
                   <button>
@@ -83,12 +87,12 @@ const SingleCharacter = info => {
                   </button>
                   <div className="prev-next">
                     <button type="button" onClick={() => setPage(next)}>
-                      <i class="fas fa-chevron-right" />
+                      <i className="fas fa-chevron-right" />
                     </button>
                   </div>
                 </section>
 
-                <section class="character-list">
+                <section className="character-list">
                   {info.count > 0 && info.count}
                   {results
                     ? results.map(
@@ -149,7 +153,7 @@ const SingleCharacter = info => {
                 </section>
                 <section className="pagination">
                   <div className="pagination-pages">
-                    {paginationButtons(pages, setPage, page)}
+                    {paginationButton(pages, setPage, page)}
                   </div>
                 </section>
               </>
@@ -161,21 +165,21 @@ const SingleCharacter = info => {
   );
 };
 
-const paginationButtons = (pages, setPage, currentPage) => {
-  const pageButtons = [];
+// const paginationButtons = (pages, setPage, currentPage) => {
+//   const pageButtons = [];
 
-  for (let i = 1; i <= pages; i++) {
-    pageButtons.push(
-      <button
-        className={currentPage === i ? "btn active" : "btn"}
-        key={i}
-        onClick={() => setPage(i)}
-      >
-        {i}
-      </button>
-    );
-  }
-  return pageButtons;
-};
+//   for (let i = 1; i <= pages; i++) {
+//     pageButtons.push(
+//       <button
+//         className={currentPage === i ? "btn active" : "btn"}
+//         key={i}
+//         onClick={() => setPage(i)}
+//       >
+//         {i}
+//       </button>
+//     );
+//   }
+//   return pageButtons;
+// };
 
 export default SingleCharacter;
