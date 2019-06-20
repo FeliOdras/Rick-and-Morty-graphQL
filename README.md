@@ -18,7 +18,7 @@
 - JavaScript
 - React.js
 - GraphQL 
-- [Rick and Morty API/GrapgQL](https://rickandmortyapi.com/)
+- [Rick and Morty API/GraphQL](https://rickandmortyapi.com/)
 
 ---
 
