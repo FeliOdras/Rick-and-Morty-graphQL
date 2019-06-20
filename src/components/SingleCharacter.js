@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import "../style/style.scss";
+import { paginationButton } from "../helpers";
 
 import NavigationBar from "./NavigationBar";
 
@@ -70,7 +71,7 @@ const SingleCharacter = info => {
                 </p>
               );
 
-            next = next ? next : 1;
+            next = next ? next : pages;
             prev = prev ? prev : 1;
             return (
               <>
@@ -152,7 +153,7 @@ const SingleCharacter = info => {
                 </section>
                 <section className="pagination">
                   <div className="pagination-pages">
-                    {paginationButtons(pages, setPage, page)}
+                    {paginationButton(pages, setPage, page)}
                   </div>
                 </section>
               </>
@@ -164,21 +165,21 @@ const SingleCharacter = info => {
   );
 };
 
-const paginationButtons = (pages, setPage, currentPage) => {
-  const pageButtons = [];
+// const paginationButtons = (pages, setPage, currentPage) => {
+//   const pageButtons = [];
 
-  for (let i = 1; i <= pages; i++) {
-    pageButtons.push(
-      <button
-        className={currentPage === i ? "btn active" : "btn"}
-        key={i}
-        onClick={() => setPage(i)}
-      >
-        {i}
-      </button>
-    );
-  }
-  return pageButtons;
-};
+//   for (let i = 1; i <= pages; i++) {
+//     pageButtons.push(
+//       <button
+//         className={currentPage === i ? "btn active" : "btn"}
+//         key={i}
+//         onClick={() => setPage(i)}
+//       >
+//         {i}
+//       </button>
+//     );
+//   }
+//   return pageButtons;
+// };
 
 export default SingleCharacter;
