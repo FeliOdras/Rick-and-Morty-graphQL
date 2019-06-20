@@ -1,9 +1,10 @@
 # Rick and Morty GraphQL
 
-## Preview
-![Rick and Morty API](https://raw.githubusercontent.com/FeliOdras/Rick-and-Morty-graphQL/master/RickAndMortyGraphQL.png)
-
 Web Application to display Information about the show "Rick & Morty" using [Rick & Morty API/GraphQL](https://rickandmortyapi.com/)
+
+## Preview
+
+![Rick and Morty API](https://raw.githubusercontent.com/FeliOdras/Rick-and-Morty-graphQL/master/RickAndMortyGraphQL.png)
 
 ---
 #### **[Visit Poject Site &raquo;](https://playground.odras.de/rick-and-morty/)**
