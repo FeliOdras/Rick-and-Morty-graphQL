@@ -54,8 +54,8 @@ const SingleCharacter = info => {
               } = {}
             } = {}
           }) => {
-            if (loading) return <p>Loading...</p>;
-            if (error) return <p>Error :(</p>;
+            if (loading) return <p className="button">Loading... </p>;
+            if (error) return <p className="button">Error :(</p>;
 
             next = next ? next : 1;
             prev = prev ? prev : 1;

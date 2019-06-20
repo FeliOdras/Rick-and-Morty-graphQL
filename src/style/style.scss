@@ -40,17 +40,19 @@ header {
   }
 }
 
+button,
+.button {
+  background-color: #232b5d;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  margin: 10px;
+  box-shadow: 0 0 6px #fff;
+}
+
 .count {
   text-align: center;
-  button {
-    background-color: #232b5d;
-    color: #fff;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    margin: 10px;
-    box-shadow: 0 0 6px #fff;
-  }
 }
 
 .character-list {
