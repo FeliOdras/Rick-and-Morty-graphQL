@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Rick-and-Morty-graphQL/static/css/main.451dde7a.chunk.css",
-    "main.js": "/Rick-and-Morty-graphQL/static/js/main.b364bf16.chunk.js",
-    "main.js.map": "/Rick-and-Morty-graphQL/static/js/main.b364bf16.chunk.js.map",
-    "runtime~main.js": "/Rick-and-Morty-graphQL/static/js/runtime~main.992a8be6.js",
-    "runtime~main.js.map": "/Rick-and-Morty-graphQL/static/js/runtime~main.992a8be6.js.map",
-    "static/css/2.21df826c.chunk.css": "/Rick-and-Morty-graphQL/static/css/2.21df826c.chunk.css",
-    "static/js/2.872e0555.chunk.js": "/Rick-and-Morty-graphQL/static/js/2.872e0555.chunk.js",
-    "static/js/2.872e0555.chunk.js.map": "/Rick-and-Morty-graphQL/static/js/2.872e0555.chunk.js.map",
-    "index.html": "/Rick-and-Morty-graphQL/index.html",
-    "precache-manifest.6d69e0b6a5f1edfd39fc9be3841e3536.js": "/Rick-and-Morty-graphQL/precache-manifest.6d69e0b6a5f1edfd39fc9be3841e3536.js",
-    "service-worker.js": "/Rick-and-Morty-graphQL/service-worker.js",
-    "static/css/2.21df826c.chunk.css.map": "/Rick-and-Morty-graphQL/static/css/2.21df826c.chunk.css.map",
-    "static/css/main.451dde7a.chunk.css.map": "/Rick-and-Morty-graphQL/static/css/main.451dde7a.chunk.css.map",
-    "static/media/style.scss": "/Rick-and-Morty-graphQL/static/media/science-fiction-bg.4ee0ba27.jpg"
+    "main.css": "/rick-and-morty/static/css/main.f2b6971b.chunk.css",
+    "main.js": "/rick-and-morty/static/js/main.5cd843ed.chunk.js",
+    "main.js.map": "/rick-and-morty/static/js/main.5cd843ed.chunk.js.map",
+    "runtime~main.js": "/rick-and-morty/static/js/runtime~main.6390f2d1.js",
+    "runtime~main.js.map": "/rick-and-morty/static/js/runtime~main.6390f2d1.js.map",
+    "static/css/2.533a087b.chunk.css": "/rick-and-morty/static/css/2.533a087b.chunk.css",
+    "static/js/2.872e0555.chunk.js": "/rick-and-morty/static/js/2.872e0555.chunk.js",
+    "static/js/2.872e0555.chunk.js.map": "/rick-and-morty/static/js/2.872e0555.chunk.js.map",
+    "index.html": "/rick-and-morty/index.html",
+    "precache-manifest.6ee15b786ef844259508b00363a86e4b.js": "/rick-and-morty/precache-manifest.6ee15b786ef844259508b00363a86e4b.js",
+    "service-worker.js": "/rick-and-morty/service-worker.js",
+    "static/css/2.533a087b.chunk.css.map": "/rick-and-morty/static/css/2.533a087b.chunk.css.map",
+    "static/css/main.f2b6971b.chunk.css.map": "/rick-and-morty/static/css/main.f2b6971b.chunk.css.map",
+    "static/media/style.scss": "/rick-and-morty/static/media/science-fiction-bg.4ee0ba27.jpg"
   }
 }
